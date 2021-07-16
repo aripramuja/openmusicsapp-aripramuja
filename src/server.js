@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-console */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-
 require("dotenv").config();
 
 const Hapi = require("@hapi/hapi");
