@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
 const InvariantError = require("../exceptions/InvariantError");
 const { MusicPayloadSchema } = require("./schema");
 

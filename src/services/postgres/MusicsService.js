@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable object-curly-newline */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
 const { nanoid } = require("nanoid");
 const { Pool } = require("pg");
 const InvariantError = require("../../exceptions/InvariantError");
@@ -44,7 +39,7 @@ class MusicService {
       values: [id],
     };
     const result = await this._pool.query(query);
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError("Lagu tidak ditemukan");
     }
     return result.rows.map(mapDBToSongDetailModel)[0];
@@ -59,7 +54,7 @@ class MusicService {
 
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError("Gagal memperbarui data lagu. Id tidak ditemukan");
     }
   }
@@ -72,7 +67,7 @@ class MusicService {
 
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError("Lagu gagal dihapus. Id tidak ditemukan");
     }
   }

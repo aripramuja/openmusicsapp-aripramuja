@@ -1,8 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable object-curly-newline */
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
-/* eslint-disable linebreak-style */
 const mapDBToSongModel = ({ id, title, performer }) => ({
   id,
   title,

@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
 const SongsHandler = require("./handler");
 const routes = require("./routes");
 
