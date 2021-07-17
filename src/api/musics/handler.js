@@ -34,13 +34,17 @@ class SongsHandler {
   }
 
   async getSongsHandler() {
-    const songs = await this._service.getSongs();
-    return {
-      status: "success",
-      data: {
-        songs,
-      },
-    };
+    try {
+      const songs = await this._service.getSongs();
+      return {
+        status: "success",
+        data: {
+          songs,
+        },
+      };
+    } catch (error) {
+      return serverError(error, h);
+    }
   }
 
   async getSongByIdHandler(request, h) {
@@ -65,7 +69,7 @@ class SongsHandler {
       await this._service.editSongById(id, request.payload);
       return {
         status: "success",
-        message: "Catatan berhasil diperbarui",
+        message: "Lagu berhasil diperbarui",
       };
     } catch (error) {
       return serverError(error, h);
@@ -79,7 +83,7 @@ class SongsHandler {
 
       return {
         status: "success",
-        message: "Catatan berhasil dihapus",
+        message: "Lagu berhasil dihapus",
       };
     } catch (error) {
       return serverError(error, h);
