@@ -69,7 +69,7 @@ class SongsHandler {
       await this._service.editSongById(id, request.payload);
       return {
         status: "success",
-        message: "Lagu berhasil diperbarui",
+        message: "Catatan berhasil diperbarui",
       };
     } catch (error) {
       return serverError(error, h);
@@ -83,7 +83,7 @@ class SongsHandler {
 
       return {
         status: "success",
-        message: "Lagu berhasil dihapus",
+        message: "Catatan berhasil dihapus",
       };
     } catch (error) {
       return serverError(error, h);
