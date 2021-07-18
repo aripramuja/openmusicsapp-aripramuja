@@ -1,9 +1,9 @@
 const { serverError } = require("../../exceptions/ServerError");
 
 class CollaborationsHandler {
-  constructor(collaborationsService, playlistsService, validator) {
+  constructor(collaborationsService, playlistService, validator) {
     this._collaborationsService = collaborationsService;
-    this._playlistsService = playlistsService;
+    this._playlistService = playlistService;
     this._validator = validator;
     this.postCollaborationHandler = this.postCollaborationHandler.bind(this);
     this.deleteCollaborationHandler = this.deleteCollaborationHandler.bind(this);
@@ -15,8 +15,7 @@ class CollaborationsHandler {
 
       const { id: credentialId } = request.auth.credentials;
       const { playlistId, userId } = request.payload;
-
-      await this._playlistsService.verifyPlaylistOwner(playlistId, credentialId);
+      await this._playlistService.verifyPlaylistOwner(playlistId, credentialId);
 
       const collaborationId = await this._collaborationsService.addCollaboration(playlistId, userId);
 
@@ -37,10 +36,11 @@ class CollaborationsHandler {
   async deleteCollaborationHandler(request, h) {
     try {
       this._validator.validateCollaborationPayload(request.payload);
+
       const { id: credentialId } = request.auth.credentials;
       const { playlistId, userId } = request.payload;
 
-      await this._playlistsService.verifyPlaylistOwner(playlistId, credentialId);
+      await this._playlistService.verifyPlaylistOwner(playlistId, credentialId);
       await this._collaborationsService.deleteCollaboration(playlistId, userId);
 
       return {
