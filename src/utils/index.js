@@ -21,10 +21,4 @@ const mapDBToPlaylist = ({ id, name, username }) => ({
   username,
 });
 
-const mapDBToPlaylistTest = ({ id, name, owner }) => ({
-  id,
-  name,
-  owner,
-});
-
-module.exports = { mapDBToSongModel, mapDBToSongDetailModel, mapDBToPlaylist, mapDBToPlaylistTest };
+module.exports = { mapDBToSongModel, mapDBToSongDetailModel, mapDBToPlaylist };
