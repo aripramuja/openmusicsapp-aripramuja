@@ -106,7 +106,7 @@ const init = async () => {
     {
       plugin: authentications,
       options: {
-        authenticationsService,
+        service: authenticationsService,
         usersService,
         tokenManager: TokenManager,
         validator: AuthenticationsValidator,
@@ -122,7 +122,7 @@ const init = async () => {
     {
       plugin: collaborations,
       options: {
-        collaborationsService,
+        service: collaborationsService,
         playlistsService,
         validator: CollaborationsValidator,
       },
